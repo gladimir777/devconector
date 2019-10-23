@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://devconector:devconector123@devconector-vuu2z.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://devconector:devconector123@devconector-vuu2z.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecrete": "mysecrettoken"
 }
