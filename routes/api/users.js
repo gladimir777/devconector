@@ -43,13 +43,13 @@ router.post(
           .json({ error: [{ mesage: 'User aleready exist' }] });
       }
       // Get user gravatar
-      const avantar = gravatar.url(email, {
+      const avatar = gravatar.url(email, {
         s: '200',
         r: 'pg',
-        d: 'mm'
+        d: '404'
       });
       // Encrypt password
-      user = new User({ name, email, password, avantar });
+      user = new User({ name, email, password, avatar });
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
 
