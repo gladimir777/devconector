@@ -25,7 +25,6 @@ router.post(
     ).isLength({ min: 6 })
   ],
   async (req, res) => {
-    // console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
@@ -34,7 +33,7 @@ router.post(
     const { name, email, password } = req.body;
 
     try {
-      // See if the user exist
+      // Check See if the user exist
       let user = await User.findOne({ email });
 
       if (user) {

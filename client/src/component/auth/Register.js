@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 
 // Action
 import { setAlert } from '../../action/alert';
+import { register } from '../../action/auth';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     password: '',
@@ -23,7 +24,7 @@ const Register = ({ setAlert }) => {
     if (password !== password2) {
       setAlert('Password does not match', 'danger');
     } else {
-      console.log(formData);
+      register({ name, email, password });
     }
   };
 
@@ -51,6 +52,7 @@ const Register = ({ setAlert }) => {
             value={email}
             onChange={e => onChange(e)}
             name="email"
+            required
           />
           <small className="form-text">
             This site uses Gravatar so if you want a profile image, use a
@@ -87,10 +89,11 @@ const Register = ({ setAlert }) => {
 };
 
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { setAlert }
+  { setAlert, register }
 )(Register);
