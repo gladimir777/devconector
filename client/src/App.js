@@ -7,6 +7,7 @@ import Login from './component/auth/Login';
 import Alert from './component/layout/Alert';
 import Dashboard from './component/dashboard/Dashboard';
 import CreateProfile from './component/profile-form/CreateProfile';
+import EditProfile from './component/profile-form/EditProfile';
 import PrivateRoute from './component/routing/PrivateRoute';
 
 // Redux
@@ -38,6 +39,11 @@ const App = () => {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path="/edit-profile"
+                component={EditProfile}
+              />
               <PrivateRoute
                 exact
                 path="/create-profile"
