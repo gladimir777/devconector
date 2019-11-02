@@ -261,7 +261,7 @@ router.put(
       check('degree', 'Degree is required')
         .not()
         .isEmpty(),
-      check('feelofstudy', 'Field of study is required')
+      check('fieldofstudy', 'Field of study is required')
         .not()
         .isEmpty(),
       check('from', 'From is required')
@@ -278,7 +278,7 @@ router.put(
     const {
       school,
       degree,
-      feelofstudy,
+      fieldofstudy,
       from,
       to,
       current,
@@ -289,7 +289,7 @@ router.put(
     const newEdu = {
       school,
       degree,
-      feelofstudy,
+      fieldofstudy,
       from,
       to,
       current,

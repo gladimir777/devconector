@@ -65,7 +65,7 @@ const profileSchema = new Schema({
         type: String,
         required: true
       },
-      feelofstudy: {
+      fieldofstudy: {
         type: String,
         required: true
       },
