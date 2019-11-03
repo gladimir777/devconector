@@ -8,12 +8,13 @@ import DashboardAction from './DashboardAction';
 import Experience from './Experience';
 import Education from './Education';
 
-import { getCurrentProfile } from '../../action/profile';
+import { getCurrentProfile, deleteAccount } from '../../action/profile';
 
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
-  profile: { profile, loading }
+  profile: { profile, loading },
+  deleteAccount
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -33,6 +34,12 @@ const Dashboard = ({
           <DashboardAction />
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
+          <div className="my-2">
+            <button className="btn btn-danger" onClick={() => deleteAccount()}>
+              <i className="fas fa-user-minus" />
+              Delete my account
+            </button>
+          </div>
         </Fragment>
       ) : (
         <Fragment>
@@ -49,7 +56,8 @@ const Dashboard = ({
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -59,5 +67,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile }
+  { getCurrentProfile, deleteAccount }
 )(Dashboard);
