@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { deleteExperience } from '../../action/profile';
 
 const Experience = ({ experience, deleteExperience }) => {
-  console.log(experience);
   const experiences = experience.map(exp => {
     return (
       <tr key={exp._id}>
