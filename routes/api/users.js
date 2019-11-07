@@ -45,7 +45,7 @@ router.post(
       const avatar = gravatar.url(email, {
         s: '200',
         r: 'pg',
-        d: '404'
+        d: 'retro'
       });
       // Encrypt password
       user = new User({ name, email, password, avatar });
