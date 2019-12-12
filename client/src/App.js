@@ -1,27 +1,28 @@
-import React, { Fragment, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NavBar from './component/layout/NavBar';
-import Landing from './component/layout/Landing';
-import Register from './component/auth/Register';
-import Login from './component/auth/Login';
-import Alert from './component/layout/Alert';
-import Dashboard from './component/dashboard/Dashboard';
-import CreateProfile from './component/profile-form/CreateProfile';
-import EditProfile from './component/profile-form/EditProfile';
-import AddExperience from './component/profile-form/AddExperience';
-import AddEducation from './component/profile-form/AddEducation';
-import Profiles from './component/profiles/Profiles';
-import Profile from './component/profile/Profile';
-import Posts from './component/posts/Posts';
-import PrivateRoute from './component/routing/PrivateRoute';
+import React, { Fragment, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from "./component/layout/NavBar";
+import Landing from "./component/layout/Landing";
+import Register from "./component/auth/Register";
+import Login from "./component/auth/Login";
+import Alert from "./component/layout/Alert";
+import Dashboard from "./component/dashboard/Dashboard";
+import CreateProfile from "./component/profile-form/CreateProfile";
+import EditProfile from "./component/profile-form/EditProfile";
+import AddExperience from "./component/profile-form/AddExperience";
+import AddEducation from "./component/profile-form/AddEducation";
+import Profiles from "./component/profiles/Profiles";
+import Profile from "./component/profile/Profile";
+import Posts from "./component/posts/Posts";
+import Post from "./component/post/Post";
+import PrivateRoute from "./component/routing/PrivateRoute";
 
 // Redux
-import { Provider } from 'react-redux';
-import store from './store';
-import setAuthToken from './utils/setAuthToken';
-import { loadUser } from './action/auth';
+import { Provider } from "react-redux";
+import store from "./store";
+import setAuthToken from "./utils/setAuthToken";
+import { loadUser } from "./action/auth";
 
-import './App.css';
+import "./App.css";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -68,6 +69,7 @@ const App = () => {
                 component={AddEducation}
               />
               <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/post/:id" component={Post} />
             </Switch>
           </section>
         </Fragment>
