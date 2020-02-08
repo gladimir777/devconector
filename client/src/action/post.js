@@ -33,7 +33,7 @@ export const getPost = id => async dispatch => {
     setAlert(error.msg, "danger");
     dispatch({
       type: POST_ERROR,
-      payload: { msg: error.response.statusText, status: error.response.status }
+      payload: { msg: error.response.status, status: error.response.status }
     });
   }
 };
@@ -137,7 +137,9 @@ export const addComent = (postId, formData) => async dispatch => {
 
 export const deleteComent = (postId, comentId) => async dispatch => {
   try {
-    const response = await axios.delete(`/api/comment/${comentId}/${postId}`);
+    const response = await axios.delete(
+      `/api/posts/comment/${comentId}/${postId}`
+    );
 
     dispatch({ type: REMOVE_COMENT, payload: comentId });
 
